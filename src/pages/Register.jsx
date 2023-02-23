@@ -23,7 +23,7 @@ function Register() {
     }
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/users/register`,
+        `https://scheduling-website-backend.onrender.com/users/register`,
         {
           username,
           password,
@@ -33,7 +33,6 @@ function Register() {
       dispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate('/home');
-      // console.log(data);
     } catch (err) {
       toast.error(getError(err));
     }

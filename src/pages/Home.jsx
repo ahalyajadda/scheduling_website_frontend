@@ -17,7 +17,7 @@ function Home() {
     const FetchAllPost = async () => {
       try {
         const myPosts = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/posts/allposts`
+          `https://scheduling-website-backend.onrender.com/posts/allposts`
         );
         await setAllposts(myPosts.data);
       } catch (err) {
@@ -34,10 +34,10 @@ function Home() {
         const myPosts =
           sort === 'oldest'
             ? await axios.get(
-                `${process.env.REACT_APP_BACKEND_URL}/posts/getSortedPosts/oldest`
+                `https://scheduling-website-backend.onrender.com/posts/getSortedPosts/oldest`
               )
             : await axios.get(
-                `${process.env.REACT_APP_BACKEND_URL}/posts/allposts`
+                `https://scheduling-website-backend.onrender.com/posts/allposts`
               );
         await setAllposts(myPosts.data);
       } catch (err) {

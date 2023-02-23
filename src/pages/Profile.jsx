@@ -7,7 +7,6 @@ import Navbar from '../components/Navbar';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 function Profile() {
   const [myPosts, setMyposts] = useState([]);
@@ -24,10 +23,10 @@ function Profile() {
         const myPosts =
           sort === 'oldest'
             ? await axios.get(
-                `${process.env.REACT_APP_BACKEND_URL}/posts/getSortedPosts/oldest`
+                `https://scheduling-website-backend.onrender.com/posts/getSortedPosts/oldest`
               )
             : await axios.get(
-                `${process.env.REACT_APP_BACKEND_URL}/posts/myposts`,
+                `https://scheduling-website-backend.onrender.com/posts/myposts`,
                 {
                   headers: { Authorization: `Bearer ${userInfo.token}` },
                 }
@@ -56,7 +55,7 @@ function Profile() {
     console.log(userInfo);
     try {
       await axios.delete(
-        `${process.env.REACT_APP_BACKEND_URL}/users/deleteMyAccount/account/${userInfo._id}`,
+        `https://scheduling-website-backend.onrender.com/users/deleteMyAccount/account/${userInfo._id}`,
         { headers: { Authorization: `Bearer ${userInfo.token}` } }
       );
       dispatch({ type: 'USER_SIGNOUT' });
@@ -71,7 +70,7 @@ function Profile() {
     const FetchMyPost = async () => {
       try {
         const myPosts = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/posts/myposts`,
+          `https://scheduling-website-backend.onrender.com/posts/myposts`,
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
           }
@@ -79,7 +78,7 @@ function Profile() {
 
         await setMyposts(myPosts.data);
         const schedulePosts = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/posts/scheduledPosts`,
+          `https://scheduling-website-backend.onrender.com/posts/scheduledPosts`,
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
           }

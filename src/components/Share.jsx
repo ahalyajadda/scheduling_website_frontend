@@ -47,7 +47,7 @@ function Share() {
     e.preventDefault();
     try {
       await axios.post(
-        'http://localhost:4001/posts',
+        'https://scheduling-website-backend.onrender.com/posts',
         {
           title,
           content,
@@ -80,7 +80,7 @@ function Share() {
       dispatch({ type: 'UPLOAD_REQUEST' });
 
       const { data } = await axios.post(
-        'http://localhost:4001/upload',
+        'https://scheduling-website-backend.onrender.com/upload',
         bodyFormData,
         {
           headers: {
@@ -91,7 +91,6 @@ function Share() {
       );
       dispatch({ type: 'UPLOAD_SUCCESS' });
 
-      // console.log(data);
       await setPost(data.secure_url);
       toast.success('Image uploaded successfully.');
     } catch (err) {

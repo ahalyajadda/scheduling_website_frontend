@@ -48,7 +48,7 @@ function EditPage() {
     const fetchPost = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/posts/getPost/${postId}`
+          `https://scheduling-website-backend.onrender.com/posts/getPost/${postId}`
         );
         setTitle(data.title);
         setContent(data.content);
@@ -66,7 +66,7 @@ function EditPage() {
     e.preventDefault();
     try {
       await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/posts/updatePost/${postId}`,
+        `https://scheduling-website-backend.onrender.com/posts/updatePost/${postId}`,
         {
           title,
           content,
@@ -94,7 +94,7 @@ function EditPage() {
       dispatch({ type: 'UPLOAD_REQUEST' });
 
       const { data } = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/upload`,
+        `https://scheduling-website-backend.onrender.com/upload`,
         bodyFormData,
         {
           headers: {

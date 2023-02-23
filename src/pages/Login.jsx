@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/users/login`,
+        `https://scheduling-website-backend.onrender.com/users/login`,
         {
           username,
           password,

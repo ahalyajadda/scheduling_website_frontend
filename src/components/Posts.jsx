@@ -12,7 +12,7 @@ function Posts(props) {
   const deleteHandler = async () => {
     try {
       await axios.delete(
-        `${process.env.REACT_APP_BACKEND_URL}/posts/post/${props.post._id}`
+        `https://scheduling-website-backend.onrender.com/posts/post/${props.post._id}`
       );
       toast.success('Deleted successfully');
       window.location.reload(true);
