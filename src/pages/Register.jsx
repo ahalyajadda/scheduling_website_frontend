@@ -16,7 +16,7 @@ function Register() {
   //creating an account
   const submitHandler = async (e) => {
     e.preventDefault();
-
+    console.log(password, confirmPassword);
     if (password !== confirmPassword) {
       toast.error('Password not match');
       return;
@@ -92,61 +92,6 @@ function Register() {
           </div>
         </div>
       </section>
-      {/* <div className="Signin">
-        <div className="left">
-          <img
-            src="https://www.cdc.gov/pregnancy/zika/materials/images/sm-graphics-sharing-icon.jpg?_=97386"
-            alt=""
-            className="image"
-          />
-        </div>
-        <div className="SigninForm">
-          <div className="content">
-            <h2>Welcome to Apalana technologies.</h2>
-            <h2>Register</h2>
-            <form onSubmit={submitHandler}>
-              <div className="FormUsername data">
-                <span className="FormLabel">Username</span>
-                <input
-                  type="text"
-                  className="FormInput"
-                  required
-                  placeholder="Enter your username"
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
-              <div className="FormPassword data">
-                <span className="FormLabel">Password</span>
-                <input
-                  type="password"
-                  className="FormInput"
-                  required
-                  placeholder="Enter your password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <div className="FormPassword data">
-                <span className="FormLabel" style={{ marginTop: '10px' }}>
-                  Confirm Password
-                </span>
-                <input
-                  type="password"
-                  className="FormInput"
-                  required
-                  placeholder="Re-Enter your password"
-                  onChange={(e) => setConfirmpassword(e.target.value)}
-                />
-              </div>
-              <div className="FormBtns">
-                <button className="Btns">Create an Account</button>
-                <p>
-                  Already have an account..? <a href="/">Login</a>
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

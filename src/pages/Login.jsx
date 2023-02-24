@@ -13,14 +13,16 @@ function Login() {
   //login
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log(username, password);
     try {
       const { data } = await axios.post(
-        `https://scheduling-website-backend.onrender.com/users/login`,
+        'https://scheduling-website-backend.onrender.com/users/login',
         {
           username,
           password,
         }
       );
+      console.log(data);
       toast.success('Login succesfully');
       dispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
