@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <ToastContainer position="bottom-center" limit={1} />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route
             path="/"
@@ -39,7 +39,7 @@ function App() {
             element={userInfo ? <EditPage /> : <Navigate to="/" />}
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
